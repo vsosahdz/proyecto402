@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+    </head>
+    <body>
+        <header>
+
+        </header>
+
+        <h1><%=sesion%></h1>
+        <ol>
+            <!--<li>usuario: Maria password:1234 edad:18</li>-->
+            <%personas.forEach((persona)=>{%>
+                <li>Usuario: <%=persona.usuario%> Password: <%=persona.password%> </li>
+            <%});%>
+        </ol>
+        <footer>
+
+        </footer>
+    </body>
+</html>
