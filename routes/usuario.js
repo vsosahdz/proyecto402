@@ -1,27 +1,19 @@
 const express = require("express");
-const path = require("path")
+const usuarioController = require('../controllers/usuario')
 //mini app
 const router = express.Router();
 
 //Mostrar el formulario
-router.get('/agregarUsuario',(req,res)=>{
-    res.sendFile(path.join(__dirname,'views','registro.html'));
-});
+router.get('/agregarUsuario',usuarioController.getAgregarUsuario);
 
 //Obtener los datos del formulario
-router.post('/agregarUsuario',(req,res)=>{
-    res.send("Hola");
-});
+router.post('/agregarUsuario',usuarioController.postAgregarUsuario);
 
 //Mostrar al usuario el resultado de la transaccion
-router.get('/confirmacion',(req,res)=>{
-    res.send("Hola");
-});
+router.get('/confirmacion',usuarioController.getConfirmacion);
 
 //Mostrar los registros de la base de datos
-router.get('/registros',(req,res)=>{
-    res.send("Hola");
-});
+router.get('/registros',usuarioController.getRegistros);
 
 module.exports =router;
 
