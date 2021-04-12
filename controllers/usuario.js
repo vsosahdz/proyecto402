@@ -38,7 +38,53 @@ exports.getRegistros = (req,res)=>{
                 sesion:"Autorizado",
                 hora:"14:00"
             });
-        })
-    
-    
+        })   
 };
+
+exports.getRegistro = (req,res) =>{
+    console.log(req.params);
+    Usuario.findByPk(req.params.usuario)
+    /*Usuario.findAll({
+        where:{
+            usuario: req.params.usuario
+        }
+    })*/
+        .then(resultado=>{
+            res.send(resultado);
+        })
+        .catch(error=>{
+            console.log(error);
+            res.send(error);
+        })
+}
+
+exports.postBorrarUsuario = (req,res)=>{
+    console.log(req.params);
+    Usuario.findByPk(req.params.usuario)
+        .then(usuario=>{
+            return usuario && usuario.destroy();
+        })
+        .then(resultado=>{
+            console.log("Usuario eliminado exitosamente")
+            console.log(resultado);
+            res.redirect('/usuario/confirmacion');
+        })
+        .catch(error=>console.log(error))
+}
+
+exports.postActualizarUsuario = (req,res)=>{
+    console.log(req.query);
+    Usuario.findByPk(req.query.usuario)
+        .then(usuario=>{
+            usuario.password = req.query.password;
+            return usuario && usuario.save();
+        })
+        .then(resultado=>{
+            console.log("Usuario actualizado exitosamente")
+            console.log(resultado);
+            res.redirect('/usuario/confirmacion');
+        })
+        .catch(error=>console.log(error))
+}
+
+
