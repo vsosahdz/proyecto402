@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <link rel="stylesheet" href="css/mi.css">      
     </head>
     <body>
         <header>
@@ -15,6 +16,13 @@
             <%personas.forEach((persona)=>{%>
                 <li>Usuario: <%=persona.usuario%> Password: <%=persona.password%> </li>
             <%});%>
+
+            <!-- <%personas.forEach((persona)=>{%>
+                <tr>
+                    <td><%=persona.usuario%></td>
+                    <td><%=persona.password%></td>                  
+                </tr>
+            <%});%> -->
         </ol>
         <footer>
 
